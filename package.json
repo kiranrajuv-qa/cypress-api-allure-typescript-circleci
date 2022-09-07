@@ -1,0 +1,52 @@
+{
+	"name": "cxpp-cy-api-automation",
+	"version": "1.0.0",
+	"description": "PX Cloud - Cypress API Test Automation",
+	"author": "Kiran Raju Vysyaraju <kivysyar@cisco.com>",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:CXEPI/cxpp-cy-api-automation.git"
+	},
+	"scripts": {
+		"prepare": "install-vscode-extensions && husky install",
+		"cy:test": "npx cypress run",
+		"report:generate": "allure generate results/allure --clean -o results/allure-report",
+		"report:merge": "npx ts-node cypress/support/utils/allure-report-merger/report-merger.ts && npx ts-node cypress/support/utils/fileOpener.ts",
+		"report:open": "allure open results/allure-report",
+		"report:clear": "rimraf results/ || true"
+	},
+	"license": "ISC",
+	"dependencies": {
+		"@shelex/cypress-allure-plugin": "latest",
+		"@typescript-eslint/eslint-plugin": "latest",
+		"@typescript-eslint/parser": "latest",
+		"allure-commandline": "latest",
+		"deep-equal": "latest",
+		"eslint": "latest",
+		"eslint-config-prettier": "latest",
+		"eslint-plugin-cypress": "latest",
+		"eslint-plugin-diff": "latest",
+		"husky": "latest",
+		"install-vscode-extensions": "latest",
+		"jsonschema": "latest",
+		"match-schema": "latest",
+		"open": "latest",
+		"prettier": "latest",
+		"prettier-plugin-organize-imports": "latest",
+		"pretty-quick": "latest",
+		"python-shell": "latest",
+		"rimraf": "latest",
+		"swagger-object-validator": "latest",
+		"ts-node": "latest",
+		"typescript": "latest",
+		"upath": "latest"
+	},
+	"devDependencies": {
+		"@cypress/skip-test": "latest",
+		"@types/node": "latest",
+		"cypress": "latest",
+		"cypress-fill-command": "latest",
+		"cypress-multi-reporters": "latest",
+		"mocha-junit-reporter": "latest"
+	}
+}

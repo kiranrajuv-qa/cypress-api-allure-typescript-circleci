@@ -1,0 +1,5 @@
+{
+	"errorMessage401": "Unauthorized",
+	"errorMessage403NotAllowed": "Not Allowed",
+	"errorMessage403": "User is not authorized to access this resource with an explicit deny"
+}

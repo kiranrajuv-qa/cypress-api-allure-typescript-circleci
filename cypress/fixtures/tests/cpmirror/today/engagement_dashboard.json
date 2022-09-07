@@ -1,0 +1,57 @@
+[
+	{
+		"testName": "User Consent",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/userConsent",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Pitstops",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/racetrack/engagement/pitstops",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Total Accounts",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/racetrack/engagement/totalAccounts",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Success Tracks",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/racetrack/engagement/successTracks",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Use Cases",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/racetrack/engagement/useCases?successTrackId=38396885",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	}
+]

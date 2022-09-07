@@ -1,0 +1,46 @@
+[
+	{
+		"testName": "Get All Notes",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/racetrack/notes?rows=10&page=1",
+		"header_puid": "Y",
+		"header_cuid": 69577724,
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Add Note",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/racetrack/note",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "add-note.json",
+		"ignore": ""
+	},
+	{
+		"testName": "Edit Note",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/racetrack/note",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "edit-note.json",
+		"ignore": ""
+	},
+	{
+		"testName": "Delete Note",
+		"roles": "pa_hcaas_st",
+		"method": "delete",
+		"url": "/v1/partner/racetrack/note/__noteId",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": "Y"
+	}
+]

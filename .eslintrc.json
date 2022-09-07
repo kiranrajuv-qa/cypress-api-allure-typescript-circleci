@@ -1,0 +1,29 @@
+{
+	"extends": [
+		"plugin:cypress/recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"ignorePatterns": ["!**/*"],
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx"],
+			"parserOptions": {
+				"project": "tsconfig.json"
+			},
+			"extends": ["plugin:diff/diff"],
+			"rules": {
+				"@typescript-eslint/no-empty-function": "warn",
+				"@typescript-eslint/no-var-requires": "warn",
+				"cypress/no-assigning-return-values": "error",
+				"cypress/no-unnecessary-waiting": "warn",
+				"cypress/assertion-before-screenshot": "warn",
+				"cypress/no-force": "warn",
+				"cypress/no-async-tests": "error",
+				"cypress/no-pause": "error"
+			}
+		}
+	]
+}

@@ -1,0 +1,1282 @@
+swagger: '2.0'
+info:
+    description: Customer Portal Mirror Project
+    version: 1.0.0
+    title: CustomerPortalMirrorProject
+    license:
+        name: Apache 2.0
+        url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: cpp-api.sdp11-idev.csco.cloud
+basePath: '/cxpp-customer-portal-mirror/mirror'
+paths:
+    '/v1/partner/racetrack/contact':
+        post:
+            tags:
+                - customer-portal-mirror-controller
+            summary: addContacts
+            operationId: addContactsUsingPOST
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - in: body
+                  name: contacts
+                  description: contacts
+                  required: true
+                  schema:
+                      '$ref': '#/definitions/CustomerContact'
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        '$ref': '#/definitions/CustomerContact'
+                '201':
+                    description: Created
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/contact/{contactid}':
+        delete:
+            tags:
+                - customer-portal-mirror-controller
+            summary: deleteContact
+            operationId: deleteContactUsingDELETE
+            produces:
+                - application/json
+            parameters:
+                - name: contactid
+                  in: path
+                  description: Contact Id
+                  required: true
+                  type: integer
+                  format: int32
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        '$ref': '#/definitions/CustomerContact'
+                '204':
+                    description: No Content
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/contacts':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getAllContacts
+            operationId: getAllContactsUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: cuid
+                  in: header
+                  description: Customer Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: page
+                  in: query
+                  description: Page
+                  required: false
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: rows
+                  in: query
+                  description: Rows
+                  required: false
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        '$ref': '#/definitions/CustomerContactsPaginatedResponse'
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/countryCount':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getCountryCount
+            operationId: getCountryCountUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: puid
+                  required: true
+                  type: string
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        type: array
+                        items:
+                            '$ref': '#/definitions/AggregationObject'
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/accounts':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getAllCustomerInfoFiltered
+            operationId: getAllCustomerInfoFilteredUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: filter
+                  in: query
+                  description: Filters
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+                - name: page
+                  in: query
+                  description: Page Number
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: false
+                  type: string
+                - name: rows
+                  in: query
+                  description: Number of Rows
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+                - name: search
+                  in: query
+                  description: Search
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+                - name: searchUserAccess
+                  in: query
+                  description: Search User Access
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+                - name: sortField
+                  in: query
+                  description: Sorting Field
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+                - name: sortType
+                  in: query
+                  description: Sorting Type
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        '$ref': '#/definitions/CustomerInfoViewResponse'
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/offer-domain/count':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getOfferDomainCount
+            operationId: getOfferDomainCountUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: false
+                  type: integer
+                  format: int32
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        $ref: '#/definitions/OfferDomainFilterObject'
+                '400':
+                    description: Bad Input
+                    schema:
+                        $ref: '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        $ref: '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/keycontact':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getKeyContact
+            operationId: getKeyContactUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: cuid
+                  in: header
+                  description: Customer Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        '$ref': '#/definitions/CustomerContact'
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/keycontact/{contactid}':
+        put:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getKeyContact
+            operationId: getKeyContactUsingPUT
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - name: contactid
+                  in: path
+                  description: Contact Id
+                  required: true
+                  type: integer
+                  format: int32
+                - name: cuid
+                  in: header
+                  description: Customer Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        '$ref': '#/definitions/CustomerContact'
+                '201':
+                    description: Created
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/nextSessionCount':
+        post:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getNextSessionCount
+            operationId: getNextSessionCountUsingPOST
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: puid
+                  required: true
+                  type: string
+                - in: body
+                  name: rangeObjects
+                  description: rangeObjects
+                  required: true
+                  schema:
+                      type: array
+                      items:
+                          '$ref': '#/definitions/RangeObject'
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        type: array
+                        items:
+                            '$ref': '#/definitions/AggregationObject'
+                '201':
+                    description: Created
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/note':
+        post:
+            tags:
+                - customer-portal-mirror-controller
+            summary: addNote
+            operationId: addNoteUsingPOST
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - in: body
+                  name: note
+                  description: note
+                  required: true
+                  schema:
+                      '$ref': '#/definitions/CustomerNotesEntity'
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        '$ref': '#/definitions/CustomerNotesEntity'
+                '201':
+                    description: Created
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/note/{noteid}':
+        delete:
+            tags:
+                - customer-portal-mirror-controller
+            summary: deleteNote
+            operationId: deleteNoteUsingDELETE
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: noteid
+                  in: path
+                  description: Note Id
+                  required: true
+                  type: integer
+                  format: int32
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                '204':
+                    description: No Content
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/notes':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getAllNotes
+            operationId: getAllNotesUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: cuid
+                  in: header
+                  description: Customer Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: page
+                  in: query
+                  description: Page
+                  required: false
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: rows
+                  in: query
+                  description: Rows
+                  required: false
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        '$ref': '#/definitions/CustomerNotesPaginatedResponse'
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/offersDeliveredCount':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getYourOffersDeliveredCount
+            operationId: getYourOffersDeliveredCountUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: puid
+                  required: true
+                  type: string
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        type: array
+                        items:
+                            '$ref': '#/definitions/AggregationObject'
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/portal-access/count':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getPortalAccessCount
+            operationId: getPortalAccessCountUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: puid
+                  required: true
+                  type: string
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        $ref: '#/definitions/PortalAccessFilterObject'
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/portal-access/status':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getPortalAccessStatus
+            operationId: getPortalAccessStatusUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        type: array
+                        items:
+                            '$ref': '#/definitions/PartnerUserAccessResponse'
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/partner-admins':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getPartnerAdmins
+            operationId: getPartnerAdminsUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: cuid
+                  in: header
+                  description: Customer Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+                - name: puid
+                  in: header
+                  description: Partner Id
+                  required: true
+                  type: integer
+                  format: int32
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        type: array
+                        items:
+                            '$ref': '#/definitions/PartnerAdminReponse'
+                '400':
+                    description: Bad Input
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        '$ref': '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/digitalAssets/acc':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getAccDigitalAssets
+            operationId: getAccDigitalAssetsUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: customerId
+                  in: header
+                  description: Customer Id
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: PUID
+                  required: false
+                  type: integer
+                  format: int32
+                - name: successTrackId
+                  in: query
+                  description: Solution
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+                - name: useCaseId
+                  in: query
+                  description: Usecase
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        type: object
+                '400':
+                    description: Bad Input
+                    schema:
+                        $ref: '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        $ref: '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/digitalAssets/atx':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getAtxDigitalAssets
+            operationId: getAtxDigitalAssetsUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: X-Mashery-Handshake
+                  in: header
+                  description: Mashery user credential header
+                  required: false
+                  type: string
+                - name: customerId
+                  in: header
+                  description: Customer Id
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: PUID
+                  required: false
+                  type: integer
+                  format: int32
+                - name: successTrackId
+                  in: query
+                  description: Success track
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+                - name: useCaseId
+                  in: query
+                  description: Usecase
+                  required: false
+                  type: string
+                  allowEmptyValue: false
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        type: object
+                '400':
+                    description: Bad Input
+                    schema:
+                        $ref: '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        $ref: '#/definitions/ErrorResponse'
+            deprecated: false
+    '/v1/partner/racetrack/successtracks/sold':
+        get:
+            tags:
+                - customer-portal-mirror-controller
+            summary: getSTSoldForCustomer
+            operationId: getSTSoldForCustomerUsingGET
+            produces:
+                - application/json
+            parameters:
+                - name: customerId
+                  in: header
+                  description: Customer Id
+                  required: false
+                  type: string
+                - name: puid
+                  in: header
+                  description: PUID
+                  required: false
+                  type: integer
+                  format: int32
+            responses:
+                '200':
+                    description: Successfully retrieved results
+                    schema:
+                        type: object
+                '400':
+                    description: Bad Input
+                    schema:
+                        $ref: '#/definitions/ErrorResponse'
+                '401':
+                    description: Unauthorized
+                '403':
+                    description: Forbidden
+                '404':
+                    description: Not Found
+                '500':
+                    description: Error during retrieve
+                    schema:
+                        $ref: '#/definitions/ErrorResponse'
+            deprecated: false
+
+definitions:
+    AggregationObject:
+        type: object
+        properties:
+            label:
+                type: string
+            value:
+                type: integer
+                format: int64
+        title: AggregationObject
+    CustomerContact:
+        type: object
+        properties:
+            contactid:
+                type: integer
+                format: int32
+            cuid:
+                type: integer
+                format: int32
+            email:
+                type: string
+            firstname:
+                type: string
+            isKeyContact:
+                type: boolean
+            joblevel:
+                type: string
+            jobrole:
+                type: string
+            jobtitle:
+                type: string
+            keyContact:
+                type: boolean
+            lastname:
+                type: string
+            location:
+                type: string
+            phoneNo:
+                type: array
+                items:
+                    type: string
+            preferedfirstname:
+                type: string
+            puid:
+                type: integer
+                format: int32
+            userid:
+                type: string
+            webexteams:
+                type: boolean
+        title: CustomerContact
+    CustomerContactsPaginatedResponse:
+        type: object
+        properties:
+            contacts:
+                type: array
+                items:
+                    '$ref': '#/definitions/CustomerContact'
+            paginationResponse:
+                '$ref': '#/definitions/PaginationResponse'
+        title: CustomerContactsPaginatedResponse
+    CustomerContractInfo:
+        type: object
+        properties:
+            contractNumber:
+                type: string
+            docId:
+                type: string
+            endDate:
+                type: string
+            partnerId:
+                type: string
+        title: CustomerContractInfo
+    CustomerContractInfoResponse:
+        type: object
+        properties:
+            contractInfoEndDates:
+                type: array
+                items:
+                    '$ref': '#/definitions/CustomerContractInfo'
+        title: CustomerContractInfoResponse
+    CustomerInfoView:
+        type: object
+        properties:
+            contracts_count:
+                type: integer
+                format: int32
+            country:
+                type: string
+            cp_access_requested_by:
+                type: string
+            cuid:
+                type: integer
+                format: int32
+            customerId:
+                type: string
+            customername:
+                type: string
+            cxp_onboarded:
+                type: boolean
+            cxp_onboarded_date:
+                type: string
+            keycontact_firstname:
+                type: string
+            keycontact_lastname:
+                type: string
+            keycontact_preferedfirstname:
+                type: string
+            partnerId:
+                type: integer
+                format: int32
+            partner_access_status:
+                type: string
+            puid:
+                type: integer
+                format: int32
+            region:
+                type: string
+            user_access_state:
+                type: string
+        title: CustomerInfoView
+    CustomerInfoViewResponse:
+        type: object
+        properties:
+            customerInfoView:
+                type: array
+                items:
+                    '$ref': '#/definitions/CustomerInfoView'
+            paginationResponse:
+                '$ref': '#/definitions/PaginationResponse'
+        title: CustomerInfoViewResponse
+    CustomerNotesEntity:
+        type: object
+        properties:
+            creation:
+                type: string
+                example: yyyy-MM-dd HH:mm:ss z
+            cuid:
+                type: integer
+                format: int32
+            edited:
+                type: boolean
+            note:
+                type: string
+            noteid:
+                type: integer
+                format: int32
+            puid:
+                type: integer
+                format: int32
+            title:
+                type: string
+            userid:
+                type: string
+            username:
+                type: string
+        title: CustomerNotesEntity
+    CustomerNotesPaginatedResponse:
+        type: object
+        properties:
+            notes:
+                type: array
+                items:
+                    '$ref': '#/definitions/CustomerNotesEntity'
+            paginationResponse:
+                '$ref': '#/definitions/PaginationResponse'
+        title: CustomerNotesPaginatedResponse
+    PartnerUserAccessResponse:
+        type: object
+        properties:
+            cp_access_requested_by:
+                type: string
+            cpaccesstatus:
+                type: string
+            cuid:
+                type: integer
+                format: int32
+            cxp_onboarded:
+                type: boolean
+            cxp_onboarded_date:
+                type: string
+            final_status:
+                type: string
+            partner_access_status:
+                type: string
+            puid:
+                type: integer
+                format: int32
+            userid:
+                type: string
+        title: PartnerUserAccessResponse
+    PartnerAdminReponse:
+        type: object
+        properties:
+            cuid:
+                type: integer
+                format: int32
+            emailid:
+                type: string
+            fullname:
+                type: string
+            puid:
+                type: integer
+                format: int32
+            roleid:
+                type: integer
+                format: int32
+            telephone:
+                type: string
+            userid:
+                type: string
+        title: PartnerAdminReponse
+    DataObject:
+        type: object
+        properties:
+            count:
+                type: integer
+                format: int64
+            key:
+                type: string
+            keyId:
+                type: string
+        title: DataObject
+    ErrorResponse:
+        type: object
+        properties:
+            message:
+                type: string
+            reason:
+                '$ref': '#/definitions/Reason'
+            status:
+                type: integer
+                format: int32
+        title: ErrorResponse
+    OfferDomainFilterObject:
+        type: object
+        properties:
+            data:
+                type: array
+                items:
+                    $ref: '#/definitions/DataObject'
+        title: OfferDomainFilterObject
+    PaginationResponse:
+        type: object
+        properties:
+            page:
+                type: integer
+                format: int32
+            pages:
+                type: integer
+                format: int32
+            rows:
+                type: integer
+                format: int32
+            total:
+                type: integer
+                format: int32
+        title: PaginationResponse
+    ProductInfoURL:
+        type: object
+        properties:
+            responseURL:
+                type: string
+        title: ProductInfoURL
+    RangeObject:
+        type: object
+        properties:
+            endRange:
+                type: integer
+                format: int32
+            startRange:
+                type: integer
+                format: int32
+            date:
+                type: integer
+                format: int64
+        title: RangeObject
+    Reason:
+        type: object
+        properties:
+            errorCode:
+                type: string
+            errorInfo:
+                type: string
+        title: Reason
+    AggData:
+        type: object
+        properties:
+            count:
+                type: integer
+                format: int32
+            key:
+                type: string
+        title: AggData
+    Response«AggData»:
+        type: object
+        properties:
+            data:
+                type: array
+                items:
+                    $ref: '#/definitions/AggData'
+    PortalAccessFilterObject:
+        type: object
+        properties:
+            data:
+                type: array
+                items:
+                    $ref: '#/definitions/DataObject'
+        title: PortalAccessFilterObject

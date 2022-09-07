@@ -1,0 +1,24 @@
+[
+	{
+		"testName": "Success Talks",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/learning/successTalks",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "PIWs - AMER Region",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/learning/piws?region=AMER",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	}
+]

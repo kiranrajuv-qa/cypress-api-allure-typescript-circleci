@@ -1,0 +1,24 @@
+{
+	"CXPP_CPM": [
+		"/v1/partner/accounts/info",
+		"/v1/partner/racetrack/portal-access/count",
+		"/v1/partner/accounts/servicetype/count",
+		"/v1/partner/accounts/offer-domain/count"
+	],
+	"CXPP_CPM_360": [
+		"/v1/partner/racetrack/pitstop/info",
+		"/v1/partner/racetrack/partner-admins",
+		"/v1/partner/racetrack/note",
+		"/v1/partner/racetrack/keycontact",
+		"/v1/partner/racetrack/successtrack/info",
+		"/v1/partner/lca"
+	],
+	"CXPP_CPM_OFFERS_360": ["/v1/partner/racetrack/digitalAssets/"],
+	"CXPP_PI_EXEC_DASH": ["/v1/partner/racetrack/engagement/"],
+	"CXPP_CPM_CONTRACTS_360": [
+		"/v1/partner/racetrack/successtracks/sold",
+		"/v1/partner/accounts/offers/sold"
+	],
+	"CXPP_PI_CISCO_CONTACTS": ["/v1/partner/userConsent"],
+	"CXPP_LEARNING": ["/v1/partner/learning", "/v1/partner/training"]
+}

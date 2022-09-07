@@ -1,0 +1,57 @@
+[
+	{
+		"testName": "Pitstop Info",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/racetrack/pitstop/info?customerId=yrxqBHmPkNhZ60",
+		"header_puid": "Y",
+		"header_cuid": 69577724,
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Success Track Info",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/racetrack/successtrack/info?customerId=yrxqBHmPkNhZ60",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Sold Success Tracks",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/accounts/offers/sold",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "yrxqBHmPkNhZ60",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Upcoming ATX Sessions",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/racetrack/digitalAssets/atx",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "yrxqBHmPkNhZ60",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Upcoming ACC Sessions",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/racetrack/digitalAssets/acc",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "yrxqBHmPkNhZ60",
+		"payload": "",
+		"ignore": ""
+	}
+]

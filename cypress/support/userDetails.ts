@@ -1,0 +1,56 @@
+export const tmpData = {
+	pa_hcaas_st: {
+		jwtToken: null,
+		puid: null,
+		userId: null,
+		firstName: null,
+		lastName: null,
+		resourceList: null,
+		customerList: null,
+	},
+	pa_hcaas_only: {
+		jwtToken: null,
+		puid: null,
+		userId: null,
+		firstName: null,
+		lastName: null,
+		resourceList: null,
+		customerList: null,
+	},
+	pa_st_only: {
+		jwtToken: null,
+		puid: null,
+		userId: null,
+		firstName: null,
+		lastName: null,
+		resourceList: null,
+		customerList: null,
+	},
+	pa_lca: {
+		jwtToken: null,
+		puid: null,
+		userId: null,
+		firstName: null,
+		lastName: null,
+		resourceList: null,
+		customerList: null,
+	},
+	exec: {
+		jwtToken: null,
+		puid: null,
+		userId: null,
+		firstName: null,
+		lastName: null,
+		resourceList: null,
+		customerList: null,
+	},
+};
+
+export const userDetails = {
+	pa_hcaas_st: null,
+	pa_hcaas_only: null,
+	pa_st_only: null,
+	pa_lca: null,
+	exec: null,
+	password: null,
+};

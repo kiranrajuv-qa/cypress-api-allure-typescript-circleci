@@ -1,0 +1,10 @@
+CODEOWNERS
+node_modules
+.circleci
+.husky
+.vscode
+package-lock.json
+*.md
+Dockerfile
+.dockerignore
+**/*.yml

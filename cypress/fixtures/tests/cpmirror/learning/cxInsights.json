@@ -1,0 +1,24 @@
+[
+	{
+		"testName": "CX Insights",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/cxinsights?sorttype=desc&sortfield=sortByDate",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "CX Insights - Filters",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/cxinsights/filters",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	}
+]

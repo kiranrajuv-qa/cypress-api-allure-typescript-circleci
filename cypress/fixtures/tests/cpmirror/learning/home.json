@@ -1,0 +1,167 @@
+[
+	{
+		"testName": "Index Counts",
+		"roles": "pa_hcaas_st",
+		"method": "get",
+		"url": "/v1/partner/learning/indexCounts",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "New Section",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/new",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "New Section - Filters",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/viewmore/new/filters",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Upcoming Events Section",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/upcoming",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Upcoming Events Section - Filters",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/viewmore/upcoming/filters",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Recently Visited Section",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/recentlyviewed",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Recently Visited Section - Filters",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/viewmore/recentlyviewed/filters",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Bookmarked Section",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/bookmarked",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Bookmarked Section - Filters",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/viewmore/bookmarked/filters",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Popular Across Partners Section",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/popular/popularAcrossPartners",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Popular Across Partners Section - Filters",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/viewmore/popular/popularAcrossPartners/filters",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Featured Section",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/featured",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Featured Section - Filters",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/featured/filters",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Popular At Partner Section",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/popular/popularAtPartner",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Popular At Partner Section - Filters",
+		"roles": "pa_hcaas_st",
+		"method": "post",
+		"url": "/v1/partner/learning/viewmore/popular/popularAtPartner/filters",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	}
+]

@@ -1,0 +1,46 @@
+[
+	{
+		"testName": "Get Use Cases",
+		"roles": "pa_lca",
+		"method": "get",
+		"url": "/v1/partner/lca/use-cases?customerId=yrxqBHmPkNhZ60",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Get Primary Contact",
+		"roles": "pa_lca",
+		"method": "get",
+		"url": "/v1/partner/lca/primary-contact?customerId=yrxqBHmPkNhZ60",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Get Language Codes",
+		"roles": "pa_lca",
+		"method": "get",
+		"url": "/v1/partner/lca/languages",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	},
+	{
+		"testName": "Get SuccessTrack Info",
+		"roles": "pa_lca",
+		"method": "get",
+		"url": "/v1/partner/lca/successtrack/info?customerId=yrxqBHmPkNhZ60",
+		"header_puid": "Y",
+		"header_cuid": "",
+		"header_customerId": "",
+		"payload": "",
+		"ignore": ""
+	}
+]
