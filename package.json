@@ -1,11 +1,11 @@
 {
-	"name": "cxpp-cy-api-automation",
+	"name": "cypress-api-allure-typescript-circleci/",
 	"version": "1.0.0",
-	"description": "PX Cloud - Cypress API Test Automation",
-	"author": "Kiran Raju Vysyaraju <kivysyar@cisco.com>",
+	"description": "Cypress API Test Automation",
+	"author": "Kiran Raju Vysyaraju <kiranrajuv@yahoo.com>",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:CXEPI/cxpp-cy-api-automation.git"
+		"url": "git@github.com:kivysyar/cypress-api-allure-typescript-circleci.git"
 	},
 	"scripts": {
 		"prepare": "install-vscode-extensions && husky install",
