@@ -1,5 +1,5 @@
 {
-	"name": "cypress-api-allure-typescript-circleci/",
+	"name": "cypress-api-allure-typescript-circleci",
 	"version": "1.0.0",
 	"description": "Cypress API Test Automation",
 	"author": "Kiran Raju Vysyaraju <kiranrajuv@yahoo.com>",
